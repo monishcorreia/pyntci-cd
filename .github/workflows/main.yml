@@ -22,7 +22,7 @@ jobs:
         curl https://raw.githubusercontent.com/pynt-io/pynt/main/goat_functional_tests/goat.postman_collection.json -o goat.json 
     - name: run pynt with newman integration 
       run: | 
-        pynt newman --collection goat.json --reporters --scanid
+        pynt newman --collection goat.json --reporters --parse_known_args --scanid
       env:
         PYNT_OUTPUT: ${{ steps.run-pynt.outputs.stdout }}
     - name: Extract Scan ID
