@@ -17,18 +17,9 @@ jobs:
     - name: install pynt cli
       run: | 
         python3 -m pip install --upgrade pyntcli 
-    - name: Pynt Newman GitHub Action
-      uses: pynt-io/pynt-newman@v0.1.2
     - name: get goat collection 
       run: | 
         curl https://raw.githubusercontent.com/pynt-io/pynt/main/goat_functional_tests/goat.postman_collection.json -o goat.json 
     - name: run pynt with newman integration 
       run: | 
         pynt newman --collection goat.json --reporters
-      env:
-        PYNT_OUTPUT: ${{ steps.run-pynt.outputs.stdout }}
-    - name: Extract Scan ID
-      run: |
-        SCAN_ID=$(echo "$PYNT_OUTPUT" | grep -o 'Scan ID: [0-9]\+' | awk '{print $3}')
-        echo "Extracted Scan ID: $SCAN_ID"
-
