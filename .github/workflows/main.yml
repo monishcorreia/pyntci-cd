@@ -23,3 +23,8 @@ jobs:
     - name: run pynt with newman integration 
       run: | 
         pynt newman --collection goat.json --reporters
+    - name: Extract Scan ID
+      run: |
+        SCAN_ID=$(echo "$PYNT_OUTPUT" | grep -o 'Scan ID: [0-9]\+' | awk '{print $3}')
+        echo "Extracted Scan ID: $SCAN_ID"
+
