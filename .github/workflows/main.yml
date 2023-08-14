@@ -23,3 +23,4 @@ jobs:
     - name: run pynt with newman integration 
       run: | 
         pynt newman --collection goat.json --reporters
+        cat pynt_results.json
