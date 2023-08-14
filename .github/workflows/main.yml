@@ -17,7 +17,7 @@ jobs:
     - name: install pynt cli
       run: | 
         python3 -m pip install --upgrade pyntcli 
-    - name: get goat collection 
+    - name: get K6 collection 
       run: | 
         curl https://api.postman.com/collections/43810-e6faf097-2c9d-4988-88f8-4bebb148e1ad?access_key=PMAT-01H7S4Y014ZRETAS5MF4181FRZ -o K6.json 
     - name: run pynt with newman integration 
